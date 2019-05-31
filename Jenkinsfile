@@ -1,6 +1,7 @@
 node {
 stage("clone repository") {
         checkout scm
+        release : rel
 }
     stage("composer_install") {
         // Run `composer update` as a shell script

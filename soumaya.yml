@@ -18,14 +18,14 @@
       os_server:
         state: present
         auth: "{{ os_auth }}"
-        name: vm-jenkins-ansible
+        name: vm-jenkins-ansible-1
         image: 'deployement'
-        key_name: rahma
+        key_name: soumaya
         timeout: 500
         flavor: LARGE
         network: selfservice
         #floating_ip_pools: provider
         floating_ips:
-          - 192.168.1.218
+          - 192.168.1.221
         security_groups: default
         wait: yes

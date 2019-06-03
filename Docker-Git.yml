@@ -34,6 +34,7 @@
       - curl
       - software-properties-common
       - docker-ce
+      wait: yes
 
   - name: Install docker-compose
     apt:

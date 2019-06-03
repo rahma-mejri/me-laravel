@@ -1,0 +1,61 @@
+- hosts: 192.168.1.221
+  tasks:
+  #- name:    Install prerequisites
+    #apt:     name={{item}} update_cache=yes
+    #with_items:
+     #- apt-transport-https
+     #- ca-certificates
+     #- curl
+     #- software-properties-common
+  #- name:    Add Docker GPG key
+    #apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+  #- name:    Add Docker APT repository
+    #apt_repository:
+      #repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+  #- name:    Install Docker
+    #apt: name=docker-ce
+
+  - name: Add Docker GPG key
+    apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+
+  - name: Add Docker APT repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
+  - name: Install list of packages
+    apt:
+      name: apt-transport-https
+      name: ca-certificates
+      name: curl
+      name: software-properties-common
+      name: docker-ce
+      
+      state: present
+      update_cache: yes
+      wait: yes
+  #- pause:
+      #minutes: 1
+    #with_items:
+      #- apt-transport-https
+      #- ca-certificates
+      #- curl
+      #- software-properties-common
+      #- docker-ce
+
+
+  - name: Install docker-compose
+    apt:
+      name: docker-compose=1.8.*
+      state: present
+      update_cache: yes
+    tags:
+      - docker
+  - name: Install Git
+    apt: 
+      name: git
+      state: present
+      update_cache: yes
+  - name: clonage
+    git:
+        repo: https://github.com/rahma-mejri/me-laravel.git
+        dest: /laravel

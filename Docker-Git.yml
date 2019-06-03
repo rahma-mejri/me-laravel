@@ -27,6 +27,7 @@
       name: "{{ item }}"
       state: present
       update_cache: yes
+       wait: yes
     with_items:
       - apt-transport-https
       - ca-certificates

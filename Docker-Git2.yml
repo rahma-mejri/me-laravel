@@ -25,15 +25,22 @@
   - name: Install list of packages
     apt:
       name: apt-transport-https
+      state: present
+
     apt:
       name: ca-certificates
+      state: present
+
     apt:
       name: curl
+      state: present
+
     apt:
       name: software-properties-common
+      state: present
+
     apt:
       name: docker-ce
-      
       state: present
       update_cache: yes
   #- pause:

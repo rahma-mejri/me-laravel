@@ -20,7 +20,7 @@
         auth: "{{ os_auth }}"
         name: vm-jenkins-ansible-1
         image: 'deployement'
-        key_name: soumaya
+        key_name: key
         timeout: 500
         flavor: LARGE
         network: selfservice

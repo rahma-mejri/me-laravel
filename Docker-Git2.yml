@@ -25,14 +25,17 @@
   - name: Install list of packages
     apt:
       name: apt-transport-https
+    apt:
       name: ca-certificates
+    apt:
       name: curl
+    apt:
       name: software-properties-common
+    apt:
       name: docker-ce
       
       state: present
       update_cache: yes
-      wait: yes
   #- pause:
       #minutes: 1
     #with_items:

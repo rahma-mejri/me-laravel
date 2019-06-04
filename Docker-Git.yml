@@ -24,18 +24,20 @@
 
   - name: Install list of packages
     apt:
+    with_items:
+     - apt-transport-https
+     - ca-certificates
+     - curl
+     - software-properties-common
+
+
+
       name: "{{ item }}"
       state: present
       update_cache: yes
       wait: yes
   - pause:
       minutes: 1
-    with_items:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
-      - docker-ce
 
 
   - name: Install docker-compose

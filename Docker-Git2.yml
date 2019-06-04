@@ -26,32 +26,27 @@
     apt:
       name: apt-transport-https
       state: present
-  #- pause:
-      #seconds: 20
+  - pause: seconds: 20
 
     apt:
       name: ca-certificates
       state: present
-  - pause:
-      seconds: 20
+  - pause: seconds: 20
 
     apt:
       name: curl
       state: present
-  - pause:
-      seconds: 20
+  - pause: seconds: 20
 
     apt:
       name: software-properties-common
       state: present
-  - pause:
-      seconds: 20
+  - pause: seconds: 20
 
     apt:
       name: docker-ce
       state: present
-  - pause:
-      seconds: 20
+  - pause: seconds: 20
     #with_items:
       #- apt-transport-https
       #- ca-certificates

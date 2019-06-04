@@ -19,7 +19,7 @@
         state: present
         auth: "{{ os_auth }}"
         name: vm-jenkins-ansible-1
-        image: 'deployement'
+        image: 'img-deploy'
         key_name: mykey
         timeout: 500
         flavor: LARGE

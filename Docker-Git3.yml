@@ -1,5 +1,5 @@
 - hosts: 192.168.1.221
-  sudo: yes
+  become: true
   tasks:
   - name:    Install prerequisites
     apt:     name={{item}} update_cache=yes
@@ -8,6 +8,7 @@
      - ca-certificates
      - curl
      - software-properties-common
+    become: true
   - name:    Add Docker GPG key
     apt_key: url=https://download.docker.com/linux/ubuntu/gpg
   - name:    Add Docker APT repository

@@ -42,7 +42,6 @@
     apt:
       name: docker-ce
       state: present
-      update_cache: yes
   #- pause:
       #minutes: 1
     #with_items:

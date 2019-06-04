@@ -39,7 +39,7 @@
       name: curl
       state: present
    - pause:
-      seconds: 20
+       seconds: 20
 
     apt:
       name: software-properties-common

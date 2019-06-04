@@ -44,7 +44,7 @@
     apt:
       name: software-properties-common
       state: present
-   - pause:
+  - pause:
       seconds: 20
 
     apt:

@@ -14,4 +14,5 @@
     apt_repository:
       repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
   - name:    Install Docker
-    apt: name=docker-ce
+    apt:
+      name=docker-ce

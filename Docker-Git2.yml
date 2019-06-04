@@ -38,8 +38,8 @@
     apt:
       name: curl
       state: present
-   - pause:
-       seconds: 20
+  - pause:
+      seconds: 20
 
     apt:
       name: software-properties-common

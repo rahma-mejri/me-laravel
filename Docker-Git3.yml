@@ -10,6 +10,7 @@
      - curl
      - software-properties-common
     become: true
+    become_user: root
   - name:    Add Docker GPG key
     apt_key: url=https://download.docker.com/linux/ubuntu/gpg
   - name:    Add Docker APT repository

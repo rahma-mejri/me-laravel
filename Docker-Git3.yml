@@ -1,7 +1,7 @@
 - hosts: 192.168.1.221
   tasks:
-    - pause:
-        seconds: 5
+  - pause:
+      seconds: 5
   - name:    Install prerequisites
     apt:     name={{item}} update_cache=yes
     with_items:

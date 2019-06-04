@@ -22,3 +22,12 @@
       update_cache: yes
     tags:
       - docker
+  - name: Install Git
+    apt: 
+      name: git
+      state: present
+      update_cache: yes
+  - name: clonage
+    git:
+        repo: https://github.com/rahma-mejri/me-laravel.git
+        dest: /laravel

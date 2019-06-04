@@ -1,6 +1,19 @@
 - hosts: 192.168.1.221
   tasks:
-  #- name:    Install prerequisites
+  - name:    Install prerequisites
+    apt:     name={{item}} update_cache=yes
+    with_items:
+     - apt-transport-https
+     - ca-certificates
+     - curl
+     - software-properties-common
+     - docker-ce
+  - name:    Add Docker GPG key
+    apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+  - name:    Add Docker APT repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
     #apt:     name={{item}} update_cache=yes
     #with_items:
      #- apt-transport-https
@@ -15,29 +28,29 @@
   #- name:    Install Docker
     #apt: name=docker-ce
 
-  - name: Add Docker GPG key
-    apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+  #- name: Add Docker GPG key
+    #apt_key: url=https://download.docker.com/linux/ubuntu/gpg
 
-  - name: Add Docker APT repository
-    apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+  #- name: Add Docker APT repository
+    #apt_repository:
+      #repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
 
-  - name: Install list of packages
-    apt:
-    with_items:
-     - apt-transport-https
-     - ca-certificates
-     - curl
-     - software-properties-common
+  #- name: Install list of packages
+    #apt:
+    #with_items:
+     #- apt-transport-https
+     #- ca-certificates
+     #- curl
+     #- software-properties-common
 
 
 
-      name: "{{ item }}"
-      state: present
-      update_cache: yes
-      wait: yes
-  - pause:
-      minutes: 1
+      #name: "{{ item }}"
+      #state: present
+      #update_cache: yes
+      #wait: yes
+  #- pause:
+      #minutes: 1
 
 
   - name: Install docker-compose
